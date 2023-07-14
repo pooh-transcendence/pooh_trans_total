@@ -1,9 +1,9 @@
 [submodule "backend"]
-	path = backend
+	path = /src/backend
 	url = https://github.com/pooh-transcendence/backend
 [submodule "frontend"]
-	path = frontend
+	path = /src/frontend
 	url = https://github.com/pooh-transcendence/frontend
 [submodule "env"]
-	path = env
+	path = /src/env
 	url = https://github.com/pooh-transcendence/env
