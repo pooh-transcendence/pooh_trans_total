@@ -1,0 +1,9 @@
+[submodule "srcs/frontend"]
+	path = srcs/frontend
+	url = https://github.com/pooh-transcendence/frontend
+[submodule "srcs/env"]
+	path = srcs/env
+	url = https://github.com/pooh-transcendence/env
+[submodule "srcs/backend"]
+	path = srcs/backend
+	url = https://github.com/pooh-transcendence/backend
