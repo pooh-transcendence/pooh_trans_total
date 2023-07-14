@@ -1,6 +1,7 @@
 # ARGS
 
 DIRS	=	/Users/ghonman2/workspace/inner/inception/data/{db,pgadmin}
+
 # CMD
 
 all:

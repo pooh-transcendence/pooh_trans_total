@@ -16,7 +16,6 @@ volumes:
       type: none
       o: bind
       device: /Users/ghonman2/workspace/inner/inception/data/pgadmin
-
 services:
   postgres:
     image : postgres:latest
@@ -58,13 +57,29 @@ services:
     build :
       ./backend
     volumes:
-      - ./requirements/backend/src:/app
+      - ./backend/src:/app
     networks:
       - dream
     ports:
       - "3000:3000"
     env_file:
       ./env/postgres.env
+
+  frontend: 
+    image: node:18-alpine
+    container_name:
+      frontend 
+    build : 
+      ./frontend
+    networks:
+      - dream
+    ports : 
+      - "8080:3000"
+    volumes:
+      - ./frontend/src:/app
+    env_file:
+      ./env/frontend.env
+
 networks:
   dream:
     name: dream
