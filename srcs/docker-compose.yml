@@ -74,9 +74,9 @@ services:
     networks:
       - dream
     ports : 
-      - "8080:3000"
+      - "80:3000"
     volumes:
-      - ./frontend/src:/app
+      - ./frontend/src:/usr/app
     env_file:
       ./env/frontend.env
 
