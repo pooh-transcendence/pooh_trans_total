@@ -7,7 +7,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/ghonman2/workspace/inner/inception/data/db
+      device: ./data/db
 
   pgadminDB:
     name: pgadminDB
@@ -15,7 +15,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/ghonman2/workspace/inner/inception/data/pgadmin
+      device: ./data/pgadmin
 services:
   postgres:
     image : postgres:latest
@@ -28,13 +28,12 @@ services:
       - dream
     tty: true
     env_file:
-      ./env/postgres.env
+      - ./env/postgres.env
     volumes:
       - db:/var/lib/postgressql/data
 
   pgadmin:
-    image: 
-      dpage/pgadmin4
+    image: dpage/pgadmin4
     container_name: 
       pgadmin
     restart: 
@@ -63,10 +62,9 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      ./env/postgres.env
+      - ./env/postgres.env
 
   frontend: 
-    image: node:18-alpine
     container_name:
       frontend 
     build : 
@@ -74,11 +72,11 @@ services:
     networks:
       - dream
     ports : 
-      - "80:3000"
+      - "80:80"
     volumes:
       - ./frontend/src:/usr/app
     env_file:
-      ./env/frontend.env
+      - ./env/frontend.env
 
 networks:
   dream:
