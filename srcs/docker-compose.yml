@@ -72,7 +72,7 @@ services:
     networks:
       - dream
     ports : 
-      - "4242:4242"
+      - "6000:6000"
     volumes:
       - ./frontend/src:/usr/app
     env_file:
