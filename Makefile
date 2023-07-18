@@ -1,6 +1,6 @@
 # ARGS
 
-DIRS	=	/Users/ghonman2/workspace/inner/inception/data/{db,pgadmin}
+DIRS	=	./data/{db,pgadmin}
 
 # CMD
 
@@ -21,7 +21,7 @@ clean:
 
 ac:
 		@make clean
-		rm -rf /Users/ghonman2/workspace/inner/inception/data 2>/dev/null
+		rm -rf ./data 2>/dev/null
 
 re:
 		@make clean
