@@ -56,7 +56,7 @@ services:
     build :
       ./backend
     volumes:
-      - ./backend/src:/app
+      - ./backend:/app
     networks:
       - dream
     ports:
