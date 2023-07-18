@@ -65,6 +65,8 @@ services:
       - ./env/postgres.env
 
   frontend: 
+    image:
+      node:18-buster
     container_name:
       frontend 
     build : 
@@ -72,7 +74,7 @@ services:
     networks:
       - dream
     ports : 
-      - "6000:6000"
+      - "6001:6001"
     volumes:
       - ./frontend/src:/usr/app
     env_file:
