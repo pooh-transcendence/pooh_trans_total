@@ -74,7 +74,7 @@ services:
     networks:
       - dream
     ports : 
-      - "6001:6001"
+      - "6002:6002"
     volumes:
       - ./frontend/src:/usr/app
     env_file:
