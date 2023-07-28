@@ -6,7 +6,6 @@ BACKEND_IP ?= $(shell ./getMyIp.sh)
 
 all:
 		@mkdir -p $(DIRS)	
-		echo ${BACKEND_IP}
 		@sh modifyFrontendEnv.sh ${BACKEND_IP} 
 		@docker compose -f srcs/docker-compose.yml up --build -d
 
