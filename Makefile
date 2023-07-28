@@ -1,15 +1,18 @@
 # ARGS
 
 DIRS	=	./data/{db,pgadmin}
-
+BACKEND_IP ?= $(shell ./getMyIp.sh)
 # CMD
 
 all:
-		@mkdir -p $(DIRS)
+		@mkdir -p $(DIRS)	
+		echo ${BACKEND_IP}
+		@sh modifyFrontendEnv.sh ${BACKEND_IP} 
 		@docker compose -f srcs/docker-compose.yml up --build -d
 
 up:
 		@mkdir -p $(DIRS)
+		@sh modifyFrontendEnv.sh ${BACKEND_IP} 
 		@docker compose -f srcs/docker-compose.yml up -d
 
 down:

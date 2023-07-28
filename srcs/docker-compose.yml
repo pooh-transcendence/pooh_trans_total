@@ -16,11 +16,11 @@ volumes:
       type: none
       o: bind
       device: ../data/pgadmin
+
 services:
   postgres:
     image : postgres:latest
     container_name: postgres
-      #build: ./requirements/postgres
     restart: on-failure:5
     ports:
       - "5432:5432"
@@ -63,6 +63,7 @@ services:
       - "3000:3000"
     env_file:
       - ./env/postgres.env
+      - ./env/backend.env
 
   frontend: 
     image:
