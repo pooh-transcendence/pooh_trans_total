@@ -19,11 +19,11 @@ volumes:
 
 services:
   postgres:
-    image : postgres:latest
+    image: postgres:latest
     container_name: postgres
     restart: on-failure:5
     ports:
-      - "5432:5432"
+      - '5432:5432'
     networks:
       - dream
     tty: true
@@ -34,52 +34,51 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
-    container_name: 
-      pgadmin
-    restart: 
-      on-failure:5
-    ports : 
-      - "5050:80"
-    tty: 
-      true
-    env_file:
-      ./env/pgadmin.env
+    container_name: pgadmin
+    restart: on-failure:5
+    ports:
+      - '5050:80'
+    tty: true
+    env_file: ./env/pgadmin.env
     networks:
       - dream
     volumes:
       - pgadminDB:/var/lib/postgresql/data
 
-  backend : 
+  backend:
     image: node:18-alpine
-    container_name: 
-      backend
-    build :
-      ./backend
+    container_name: backend
+    build: ./backend
     volumes:
       - ./backend:/app
     networks:
       - dream
     ports:
-      - "3000:3000"
+      - '3000:3000'
     env_file:
       - ./env/postgres.env
       - ./env/backend.env
 
-  frontend: 
-    image:
-      node:18-buster
-    container_name:
-      frontend 
-    build : 
-      ./frontend
+  frontend:
+    image: node:18-buster
+    container_name: frontend
+    build: ./frontend
     networks:
       - dream
-    ports : 
-      - "6002:6002"
+    ports:
+      - '6002:6002'
     volumes:
       - ./frontend/src:/usr/app
     env_file:
       - ./env/frontend.env
+
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    networks:
+      - dream
+    ports:
+      - '443:443'
 
 networks:
   dream:

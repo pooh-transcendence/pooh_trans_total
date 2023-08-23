@@ -1,6 +1,6 @@
 # ARGS
 
-DIRS	=	./data/{db,pgadmin}
+DIRS	=	./data/{db,pgadmin,redis}
 BACKEND_IP ?= $(shell ./getMyIp.sh)
 # CMD
 
